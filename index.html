@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="lib/leaflet/leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css">
+  <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/custom-marker.css"> <!-- Ajoutez ce lien -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+  <!-- Assurez-vous d'inclure Font Awesome dans votre fichier HTML -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha256-5A6GQ5apd8eE6D09Ja9JSVwUn5L5oV/Frb2mR24E00o=" crossorigin="anonymous">
+
+
+
+  <!--plugins-->
+
+  <link rel="stylesheet" href="lib/leaflet/plugins/L.Control.MousePosition.css">
+  <link rel="stylesheet" href="lib/leaflet/plugins/Leaflet.PolylineMeasure.css">
+  <link rel="stylesheet" href="lib/leaflet/plugins/easy-button.css">
+  <link rel="stylesheet" href="lib/leaflet/plugins/L.Control.Sidebar.css">
+  <link rel="stylesheet" href="lib/leaflet/plugins/L.Control.Locate.min.css">
+  <link rel="stylesheet" href="lib/leaflet/plugins/Leafletfullscreen/dist/leaflet.fullscreen.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+  <link rel="stylesheet" href="leaflet-search/dist/leaflet-search.src.css">
+  <link rel="stylesheet" href="lib/leaflet/plugins/leaflet.awesome-markers.css">
+  <link rel="stylesheet" href="lib/leaflet/plugins/MarkerCluster.css">
+  <link rel="stylesheet" href="lib/leaflet/plugins/MarkerCluster.Default.css">
+
+  <!--plugins-->
+  <style>
+    #map {
+      height: 900px;
+    }
+
+    .container-fluid {
+      margin-top: 50px;
+    }
+
+
+    #side-bar {
+      background: linear-gradient(to top, #0000ff, #6e000f, #390023, #000000);
+    }
+
+
+    .icon {
+      max-width: 70%;
+      max-height: 70%;
+      margin: 4px;
+    }
+
+
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 2px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    .form-container div {
+      width: 100%;
+      padding: 2px;
+      background-color: white;
+      margin-bottom: 2px;
+      border-radius: 4px;
+    }
+
+
+
+    .custom-button i {
+      margin-right: 8px;
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 200px;
+    }
+
+    button .caret {
+      margin-left: auto;
+      /* Déplacez le caret vers la droite en utilisant "auto" */
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="navmenu">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+            aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://ndmad.github.io/redgisaf/" target="_blank">Red Gis Africa</a>
+        </div>
+
+
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Geoportail</a></li>
+            <li><a href="tabdata.html">Tableau de données</a></li>
+            <li><a href="dataviz.html">Visualisation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div id="side-bar" class="col-md-12">
+        <h1>CHOSIR UNE THEMATIQUE</h1>
+        <hr>
+
+        <!--content-->
+        <div class="form-container">
+          <button id="mob">Fonds de carte <span class="caret"></span></button>
+          <div class="mob1">Changer couleur</div>
+          <div class="mob1">Changer couleur</div>
+          <div class="mob1">Changer couleur</div>
+        </div>
+
+        <!-- Content -->
+        <div class="form-container">
+          <button id="edu">Foncier <span class="caret"></span></button>
+          <div class="edu1">Changer couleur</div>
+          <div class="edu1">Changer couleur</div>
+          <div class="edu1">Changer couleur</div>
+        </div>
+
+
+        <!--content-->
+        <div class="form-container">
+          <button id="mob">Urbanisme <span class="caret"></span></button>
+          <div class="mob1">Changer couleur</div>
+          <div class="mob1">Changer couleur</div>
+          <div class="mob1">Changer couleur</div>
+        </div>
+
+        <!--content-->
+        <div class="form-container">
+          <button id="san">Thématiques foncières <span class="caret"></span></button>
+          <div class="san1">Changer couleur</div>
+          <div class="san1">Changer couleur</div>
+          <div class="san1">Changer couleur</div>
+        </div>
+
+        <!--content-->
+        <div class="form-container">
+          <button id="pat">Logements vacants <span class="caret"></span></button>
+          <div class="pat1">Changer couleur</div>
+          <div class="pat1">Changer couleur</div>
+          <div class="pat1">Changer couleur</div>
+        </div>
+
+        <!--content-->
+        <div class="form-container">
+          <button id="eco">Occupation du sol <span class="caret"></span></button>
+          <div class="eco1">Changer couleur</div>
+          <div class="eco1">Changer couleur</div>
+          <div class="eco1">Changer couleur</div>
+        </div>
+
+        <!--content-->
+        <div class="form-container">
+          <button id="eco">Fiscalité <span class="caret"></span></button>
+          <div class="eco1">Changer couleur</div>
+          <div class="eco1">Changer couleur</div>
+          <div class="eco1">Changer couleur</div>
+        </div>
+
+        <!--content-->
+        <div class="form-container">
+          <button id="eco">Environnement <span class="caret"></span></button>
+          <div class="eco1">Changer couleur</div>
+          <div class="eco1">Changer couleur</div>
+          <div class="eco1">Changer couleur</div>
+        </div>
+
+        <!--content-->
+        <div class="form-container">
+          <button id="eco">Risque <span class="caret"></span></button>
+          <div class="eco1">Changer couleur</div>
+          <div class="eco1">Changer couleur</div>
+          <div class="eco1">Changer couleur</div>
+        </div>
+
+        <!--content-->
+        <div class="form-container">
+          <button id="eco">Agriculture <span class="caret"></span></button>
+          <div class="eco1">Changer couleur</div>
+          <div class="eco1">Changer couleur</div>
+          <div class="eco1">Changer couleur</div>
+        </div>
+
+        <!--content-->
+        <div class="form-container">
+          <button id="eco">Enérgie <span class="caret"></span></button>
+          <div class="eco1">Changer couleur</div>
+          <div class="eco1">Changer couleur</div>
+          <div class="eco1">Changer couleur</div>
+        </div>
+
+        <!--content-->
+        <div class="form-container">
+          <button id="eco">Mobilité <span class="caret"></span></button>
+          <div class="eco1">Changer couleur</div>
+          <div class="eco1">Changer couleur</div>
+          <div class="eco1">Changer couleur</div>
+        </div>
+
+        <!--content-->
+        <div class="form-container">
+          <button id="eco">Geologie <span class="caret"></span></button>
+          <div class="eco1">Changer couleur</div>
+          <div class="eco1">Changer couleur</div>
+          <div class="eco1">Changer couleur</div>
+        </div>
+
+      </div>
+
+      <div id="map" class="col-md-12"></div>
+
+
+    </div>
+
+  </div>
+
+
+
+</body>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="lib/leaflet/leaflet.js"></script>
+<script src="lib/leaflet/jquery-3.5.1.js"></script>
+
+
+<!--plugins-->
+
+<script src="lib/leaflet/plugins/L.Control.MousePosition.js"></script>
+<script src="lib/leaflet/plugins/Leaflet.PolylineMeasure.js"></script>
+<script src="lib/leaflet/plugins/easy-button.js"></script>
+<script src="lib/leaflet/plugins/L.Control.Sidebar.js"></script>
+<script src="lib/leaflet/plugins/leaflet-providers.js"></script>
+<script src="lib/leaflet/plugins/leaflet.ajax.min.js"></script>
+
+
+<script src="https://unpkg.com/geojson-vt@3.2.0/geojson-vt.js"></script>
+<script src="lib/leaflet/plugins/leaflet-geojson-vt.js"></script>
+
+<script src="lib/leaflet/plugins/leaflet-sidepanel.min.js"></script>
+
+<script src="lib/leaflet/plugins/Leafletfullscreen/dist/Leaflet.fullscreen.js"></script>
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+<script src="lib/leaflet/plugins/L.Control.Locate.min.js"></script>
+<script src="leaflet-search/dist/leaflet-search.src.js"></script>
+<script src="lib/leaflet/plugins/leaflet.awesome-markers.min.js"></script>
+<script src="lib/leaflet/plugins/leaflet.markercluster.js"></script>
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<script src="https://unpkg.com/togeojson@0.14.2"></script>
+<script src="src/leaflet.filelayer.js"></script>
+
+<script src="data/communes.js"></script>
+
+
+
+<!--plugins-->
+
+
+
+
+<script src="js/source_code.js"></script>
+
+
+</html>
