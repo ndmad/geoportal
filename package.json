@@ -1,0 +1,30 @@
+{
+  "name": "geoportal",
+  "version": "1.0.0",
+  "description": "\"Un site Web interactif utilisant Leaflet pour afficher des cartes géographiques personnalisées.\"",
+  "main": "\"main\": \"index.html\"",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ndmad/geoportal.git"
+  },
+  "keywords": [
+    "carte",
+    "interactif",
+    "leaflet",
+    "géographie",
+    "javascript"
+  ],
+  "author": "mamadou ndiaye",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ndmad/geoportal/issues"
+  },
+  "homepage": "https://github.com/ndmad/geoportal#readme"
+}
