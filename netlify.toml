@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
-  publish = "geoportal"
+  command = "echo 'No build script needed'"
+  publish = "geoportal/"
 
 
