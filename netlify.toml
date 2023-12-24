@@ -1,3 +1,5 @@
 [build]
-  publish = "/home/madou/Downloads/geoportal"
   command = "echo 'No build script needed'"
+  publish = "geoportal"
+
+
