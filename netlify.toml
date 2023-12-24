@@ -1,6 +1,6 @@
  [build]
   base = "geoportal"
-  buil command = "npm run build" 
+  build = "npm run build" 
   publish = "geoportal/"
 
  
