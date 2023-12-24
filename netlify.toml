@@ -1,9 +1,7 @@
- [build]
-  base = "/"                    # indique à Netlify de travailler à partir de la racine du projet
-  command = "npm run build"     # Ajustez selon votre configuration de construction
-  publish = "geoportal/"        # Le répertoire contenant les fichiers à déployer
-
-[[redirects]]
+ [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+[build]
+  publish = "geoportal/"
