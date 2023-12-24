@@ -1,7 +1,11 @@
+ [build]
+  base = "geoportal"
+  buil command = "npm run build" 
+  publish = "geoportal/"
+
+ 
  [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-[build]
-  publish = "geoportal/"
