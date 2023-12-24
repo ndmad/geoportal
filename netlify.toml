@@ -1,3 +1,7 @@
+[build]
+  command = "npm run build"  # Ajustez selon votre configuration de construction
+  publish = "geoportal/"  # Le répertoire contenant les fichiers à déployer
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
